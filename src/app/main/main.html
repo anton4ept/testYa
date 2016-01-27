@@ -1,0 +1,80 @@
+<div class="container">
+  <nav class="navbar navbar-default">
+    <form class="navbar-form navbar-left" ng-submit="main.addTask()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Название" ng-model="main.newTask.title">
+      </div>
+      <button type="submit" class="btn btn-default">Добавить задачу</button>
+    </form>
+  </nav>
+
+  <div class="row">
+    <div class="col-sm-6 col-md-4" >
+      <div class="panel panel-danger">
+        <div class="panel-heading">
+          <h3 class="panel-title">В ожидании</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="task in main.myTasks | filter: {status:0} track by task.id">
+                <td>
+                  <span>{{ task.title }}</span>
+                </td>
+                <td class="text-right">
+                  <span class="btn btn-sm btn-warning glyphicon glyphicon-plus" ng-click="main.processTask(task)" title="Перевести в статус &quot;В процессе&quot;"></span>
+                  <span class="btn btn-sm btn-danger glyphicon glyphicon-remove" ng-click="main.deleteTask(task)" title="Удалить" ></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-6 col-md-4" >
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title">В процессе</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="task in main.myTasks | filter: {status:1} track by task.id">
+                <td>
+                  <span>{{ task.title }}</span>
+                </td>
+                <td class="text-right">
+                  <span class="btn btn-sm btn-success glyphicon glyphicon-ok" ng-click="main.endTask(task)" title="Перевести в статус &quot;Выполнено&quot;"></span>
+                  <span class="btn btn-sm btn-danger glyphicon glyphicon-remove" ng-click="main.deleteTask(task)" title="Удалить"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-6 col-md-4" >
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title">Выполнено</h3>
+        </div>
+        <div class="panel-body">
+          <table class="table">
+            <tbody>
+              <tr ng-repeat="task in main.myTasks | filter: {status:2} track by task.id">
+                <td>
+                  <span>{{ task.title }}</span>
+                </td>
+                <td class="text-right">
+                  <span class="btn btn-sm btn-danger glyphicon glyphicon-remove" ng-click="main.deleteTask(task)" title="Удалить"></span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

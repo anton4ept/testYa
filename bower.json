@@ -1,0 +1,26 @@
+{
+  "name": "testYa",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-route": "~1.4.2",
+    "bootstrap": "~3.3.5",
+    "angular": "~1.4.2",
+    "ngstorage": "~0.3.10"
+
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2"
+      ]
+    }
+  },
+  "resolutions": {
+    "angular": "~1.4.2"
+  }
+}
