@@ -15,9 +15,9 @@
     vm.myTasks=$localStorage.myTasks;
     
     // watch for localStorage
-    $scope.$watch(function(scope) {
+    $scope.$watch(function() {
       return $localStorage.myTasks;
-    }, function(nV, oV){ vm.myTasks=nV; });
+    }, function(nV){ vm.myTasks=nV; });
     
     // cointer-index must be unique
     if(vm.myTasks.length>0) {
